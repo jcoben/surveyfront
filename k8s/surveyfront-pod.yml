@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: surveyfront
+spec:
+  containers:
+  - name: surveyfront
+    image: jcoben/surveyfront:v1
+    ports:
+    - containerPort: 80

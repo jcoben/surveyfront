@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: surveyfront-deployment
+  labels:
+    app: surveyfront
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: surveyfront
+  template:
+    metadata:
+      labels:
+        app: surveyfront
+    spec:
+      containers:
+      - name: surveyfront
+        image: jcoben/surveyfront:v1
+        ports:
+        - containerPort: 80
