@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function App() {
   const navigate = useNavigate()

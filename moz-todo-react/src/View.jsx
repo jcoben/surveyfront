@@ -1,23 +1,28 @@
 import {useState, useEffect} from "react"
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './View.css'
 
 function View() {
   const navigate = useNavigate()
   const [data, setData] = useState([]);
 
-  const onEditClick = () => {
-    navigate('/')
-  }
-
-  const onRemoveClick = () => {
-    navigate('/')
+  const onRemoveClick = (id) => {
+    console.log("Deleting entry with id: " + id)
+    fetch('http://34.194.209.134:30007/survey/' + id, { method: 'DELETE' })
+      //.then(res => res.json())
+      .then(
+         () => {
+            fetch('http://34.194.209.134:30007/survey')
+              .then((response) => response.json())
+              .then((json) => setData(json))
+         }
+      )
   }
 
   useEffect(() => {
-    fetch('http://34.194.209.134:81/survey')
-    .then((response) => response.json())
-    .then((json) => setData(json))
+    fetch('http://34.194.209.134:30007/survey')
+      .then((response) => response.json())
+      .then((json) => setData(json))
   }, []);
 
   return (
@@ -72,8 +77,8 @@ function View() {
               <td>{entry.likely}</td>
               <td>{entry.raffle}</td>
               <td>{entry.comment}</td>
-              <td><button onClick={onEditClick}>Edit</button></td>
-              <td><button onClick={onRemoveClick}>Remove</button></td>
+              <td><Link to="/modify" state={{entry}}>Edit</Link></td>
+              <td><button onClick={() => onRemoveClick(entry.id)}>Remove</button></td>
             </tr>
           ))}
         </tbody>

@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import './App.css'
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Enter() {
   const navigate = useNavigate()
@@ -26,27 +26,6 @@ function Enter() {
   const likelyRef = useRef()
   const raffleRef = useRef()
   const commentsRef = useRef()
-
-  const [fname, setFname] = useState("")
-  const [lname, setLname] = useState("")
-  const [saddress, setSaddress] = useState("")
-  const [city, setCity] = useState(false)
-  const [state, setState] = useState(false)
-  const [tele, setTele] = useState(false)
-  const [email, setEmail] = useState(false)
-  const [date, setDate] = useState(false)
-  const [students, setStudents] = useState(false)
-  const [location, setLocation] = useState(false)
-  const [atmos, setAtmos] = useState(false)
-  const [dorms, setDorms] = useState(false)
-  const [sports, setSports] = useState(false)
-  const [friends, setFriends] = useState(false)
-  const [television, setTelevision] = useState(false)
-  const [radio, setRadio] = useState(false)
-  const [other, setOther] = useState(false)
-  const [likely, setlikely] = useState(false)
-  const [raffle, setRaffle] = useState(false)
-  const [comments, setComments] = useState(false)
 
   const onCancelClick = () => {
     navigate('/')
@@ -82,7 +61,7 @@ function Enter() {
         })
     }
 
-    fetch('http://34.194.209.134:81/survey', requestOptions)
+    fetch('http://34.194.209.134:30007/survey', requestOptions)
         .then(async response => {
             const data = await response.json()
 
