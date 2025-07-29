@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>Welcom to Student Survey for SWE645!</h1>
+        <h1>Welcome to Student Survey for SWE645!</h1>
         <button className="mainOption" onClick={onEnterClick}>Enter a Survey</button>
         <button className="mainOption" onClick={onViewClick}>View Entries</button>
       </header>
