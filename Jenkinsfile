@@ -30,7 +30,7 @@ pipeline {
     stage('Update Kubernetes Deployment') {
       steps {
         script {
-          sh 'kubectl rollout restart deployment/student-survey-deployment'
+          sh 'kubectl rollout restart deployment/surveyfront-deployment'
         }
       }
     }
